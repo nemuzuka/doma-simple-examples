@@ -52,7 +52,8 @@ repositories {
 dependencies {
     annotationProcessor "org.seasar.doma:doma-processor:${domaVersion}"
     implementation "org.seasar.doma:doma-core:${domaVersion}"
-    runtimeOnly 'com.h2database:h2:1.4.200'
+    implementation "com.fasterxml.jackson.core:jackson-databind:2.11.0"
+    runtimeOnly "org.postgresql:postgresql:42.2.9"
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.6.1'
 }

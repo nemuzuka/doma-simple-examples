@@ -1,6 +1,7 @@
 package examples.entity;
 
 import examples.domain.Age;
+import examples.domain.Attribute;
 import examples.domain.Salary;
 import java.sql.Timestamp;
 import java.time.LocalDate;
@@ -47,6 +48,8 @@ public class Employee {
   @Transient Department department;
 
   @OriginalStates Employee originalStates;
+
+  Attribute attribute;
 
   public Integer getId() {
     return id;
@@ -134,6 +137,14 @@ public class Employee {
 
   public void setDepartment(Department department) {
     this.department = department;
+  }
+
+  public Attribute getAttribute() {
+    return attribute;
+  }
+
+  public void setAttribute(Attribute attribute) {
+    this.attribute = attribute;
   }
 
   @Override

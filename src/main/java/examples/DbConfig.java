@@ -4,7 +4,7 @@ import javax.sql.DataSource;
 import org.seasar.doma.SingletonConfig;
 import org.seasar.doma.jdbc.Config;
 import org.seasar.doma.jdbc.dialect.Dialect;
-import org.seasar.doma.jdbc.dialect.H2Dialect;
+import org.seasar.doma.jdbc.dialect.PostgresDialect;
 import org.seasar.doma.jdbc.tx.LocalTransactionDataSource;
 import org.seasar.doma.jdbc.tx.LocalTransactionManager;
 import org.seasar.doma.jdbc.tx.TransactionManager;
@@ -21,9 +21,10 @@ public class DbConfig implements Config {
   private final TransactionManager transactionManager;
 
   private DbConfig() {
-    dialect = new H2Dialect();
+    dialect = new PostgresDialect();
     dataSource =
-        new LocalTransactionDataSource("jdbc:h2:mem:tutorial;DB_CLOSE_DELAY=-1", "sa", null);
+//        new LocalTransactionDataSource("jdbc:h2:mem:tutorial;DB_CLOSE_DELAY=-1", "sa", null);
+          new LocalTransactionDataSource("jdbc:postgresql://localhost:15432/doma_json", "postgres", "postgres");
     transactionManager =
         new LocalTransactionManager(dataSource.getLocalTransaction(getJdbcLogger()));
   }
